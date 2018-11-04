@@ -1,0 +1,231 @@
+/* Global Styles */
+
+@import url('https://fonts.googleapis.com/css?family=Lobster|Roboto');
+@import url('menu-icon.css');
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+html,
+body {
+  color: lightblue;
+  font-family: Roboto, sans-serif;
+  font-size: 100%;
+  height: 100%;
+  line-height: 1.45;
+}
+:focus {
+  outline: 0;
+}
+
+/* Video Overlay */
+
+#overlay {
+  background-color: rgba(0, 0, 0, 0.65);
+  height: 100%;
+  left: 0;
+  position: relative;
+  top: 0;
+  transition: background-color 200ms ease;
+  width: 100%;
+}
+
+.fade {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Hero Video + Fallback */
+
+#hero-vid {
+  backface-visibility: hidden;
+  background: url('../video/Tourists.jpg') no-repeat scroll 0 0 #000;
+  background-size: cover;
+  bottom: 0;
+  height: auto;
+  min-height: 100%;
+  min-width: 100%;
+  perspective: 1000;
+  position: fixed;
+  right: 0;
+  width: auto;
+  z-index: -1;
+}
+
+#hero-pic {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+#state {
+  bottom: 0;
+  cursor: pointer;
+  font-size: 2.25rem;
+  left: 0;
+  line-height: 1;
+  padding: 2rem 2.5rem 1.65rem;
+  position: absolute;
+}
+
+/* Content Styles */
+
+header {
+  backface-visibility: hidden;
+  left: 0;
+  perspective: 1000;
+  width: 100%;
+  z-index: 10;
+}
+header,
+header a,
+header a:visited {
+  color: lightblue;
+  text-decoration: none;
+}
+header .navbar {
+  background-color: rgba(0, 0, 0, 0.5);
+  font-family: Lobster, sans-serif;
+  padding: 1rem 1.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  line-height: 1;
+}
+header .navbar .logo {
+  font-size: 1.8rem;
+}
+.header-content {
+  font-size: 0.8rem;
+  padding: 1rem;
+  text-align: right;
+  transform: translate3d(0, 0, 0);
+}
+.header-content h1 {
+  margin: 0;
+}
+#content {
+  background-color: #151515;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+#content .inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#content p {
+  font-size: 1.1rem;
+  letter-spacing: 0.02rem;
+  margin-bottom: 1.3rem;
+}
+nav {
+  position: absolute;
+  left: 0;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.85);
+  width: 100%;
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.25s;
+}
+nav.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translate3d(0, 43px, 0);
+}
+nav a,
+nav a:visited {
+  display: block;
+  padding: 1rem 0;
+  font-size: 1.5rem;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 768px) {
+  #overlay {
+    height: auto;
+  }
+  .header-content {
+    position: absolute;
+    right: 1rem;
+    bottom: 10%;
+    margin-top: -12px;
+  }
+}
+
+/* Visibility Helpers */
+
+@media only screen and (min-width: 769px) {
+  .visible-mobile,
+  .visible-tablet,
+  .hidden-desktop {
+    display: none !important;
+  }
+  header {
+    position: fixed;
+    z-index: 0;
+  }
+  header .navbar {
+    font-size: 1.5rem;
+  }
+  header .navbar .logo {
+    font-size: 2.5rem;
+  }
+  .navbar nav ul {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    padding: 12px 0;
+  }
+  nav ul a {
+    padding: 0 1rem;
+  }
+  nav {
+    position: relative;
+    background: transparent;
+    width: auto;
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(0, 0, 0);
+  }
+  nav.show {
+    transform: translate3d(0, 0, 0);
+  }
+  .header-content {
+    font-size: 1.7rem;
+    padding: 2rem;
+    transform: translate3d(0, 223%, 0);
+  }
+  .hamburger {
+    display: none;
+  }
+  #content p {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 768px) {
+  .visible-mobile,
+  .hidden-tablet,
+  .visible-desktop {
+    display: none !important;
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .hidden-mobile,
+  .visible-tablet,
+  .visible-desktop {
+    display: none !important;
+  }
+}
